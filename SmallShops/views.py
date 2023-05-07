@@ -1035,3 +1035,5 @@ def deductInventory(request):
         inventoryValue = alteredValuePerItem[inventoryID]
         curs.execute(updQuantity, (inventoryQuantity, inventoryValue, inventoryID))
         conn.commit()
+    return render(request, "order.html", {"orderID": order.orderID,"userID": order.userID,"creditCard": order.creditCard,"city": order.city,"state": order.state,"country": order.country,"address": order.address,"items": order.items,"pricePerItem": order.pricePerItem,"quantityPerItem": order.quantityPerItem,"costPerItem": order.costPerItem,"originalQuantityPerItem": order.originalQuantityPerItem,"originalValuePerItem": order.originalValuePerItem,"alteredQuantityPerItem": order.alteredQuantityPerItem,"alteredValuePerItem": order.alteredValuePerItem,"totalCost": order.totalCost,"date": order.date})
+
