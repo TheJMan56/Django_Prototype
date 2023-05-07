@@ -638,7 +638,6 @@ def addNewInventoryItem(request):
     department = request.GET["department"]
     inventoryPrice = float(request.GET["inventoryPrice"])
     inventoryQuantity = float(request.GET["inventoryQuantity"])
-    return render(request, "inventoryItem.html", {"inventoryID": inventoryItem.inventoryID, "inventoryName": inventoryItem.inventoryName, "department": inventoryItem.department, "inventoryPrice": inventoryItem.inventoryPrice, "inventoryQuantity": inventoryItem.inventoryQuantity, "inventoryValue": inventoryItem.inventoryValue})
     
     global inventoryItem
     inventoryItem = Inventory()
@@ -677,6 +676,7 @@ def commitAlteredInventoryItem(request):
                                 inventoryItem.inventoryPrice, inventoryItem.inventoryQuantity, \
                                 inventoryItem.inventoryValue, inventoryItem.inventoryID))
     conn.commit()
+    return render(request, "inventoryItem.html", {"inventoryID": inventoryItem.inventoryID, "inventoryName": inventoryItem.inventoryName, "department": inventoryItem.department, "inventoryPrice": inventoryItem.inventoryPrice, "inventoryQuantity": inventoryItem.inventoryQuantity, "inventoryValue": inventoryItem.inventoryValue})
 
 def deleteCurrentInventoryItem(request):
     delInventory = 'DELETE FROM Inventory WHERE inventoryID ='
@@ -1032,4 +1032,3 @@ def deductInventory(request):
         curs.execute(updQuantity, (inventoryQuantity, inventoryValue, inventoryID))
         conn.commit()
     return render(request, "order.html", {"orderID": order.orderID,"userID": order.userID,"creditCard": order.creditCard,"city": order.city,"state": order.state,"country": order.country,"address": order.address,"items": order.items,"pricePerItem": order.pricePerItem,"quantityPerItem": order.quantityPerItem,"costPerItem": order.costPerItem,"originalQuantityPerItem": order.originalQuantityPerItem,"originalValuePerItem": order.originalValuePerItem,"alteredQuantityPerItem": order.alteredQuantityPerItem,"alteredValuePerItem": order.alteredValuePerItem,"totalCost": order.totalCost,"date": order.date})
-
