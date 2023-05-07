@@ -638,6 +638,7 @@ def addNewInventoryItem(request):
     department = request.GET["department"]
     inventoryPrice = float(request.GET["inventoryPrice"])
     inventoryQuantity = float(request.GET["inventoryQuantity"])
+    return render(request, "inventoryItem.html", {"inventoryID": inventoryItem.inventoryID, "inventoryName": inventoryItem.inventoryName, "department": inventoryItem.department, "inventoryPrice": inventoryItem.inventoryPrice, "inventoryQuantity": inventoryItem.inventoryQuantity, "inventoryValue": inventoryItem.inventoryValue})
     
     global inventoryItem
     inventoryItem = Inventory()
