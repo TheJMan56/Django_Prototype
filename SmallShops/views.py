@@ -15,6 +15,12 @@ def isfloat(num):
     except ValueError:
         return False
 
+def obtainAllInventoryItems():
+    sql = 'SELECT * FROM Inventory'
+    curs.execute(sql)
+    rows = curs.fetchall()
+    return rows
+
 def obtainInventoryItem(inventoryID):
     sql = 'SELECT * FROM Inventory WHERE inventoryID ='
     inventoryID = str(inventoryID)
@@ -28,6 +34,12 @@ def deleteInventoryItem(inventoryID):
     curs.execute(sql + " " + inventoryID)
     conn.commit()
 
+def obtainAllUsers():
+    sql = 'SELECT * FROM Users'
+    curs.execute(sql)
+    rows = curs.fetchall()
+    return rows
+
 def obtainUser(userID):
     sql = 'SELECT * FROM Users WHERE userID ='
     userID = str(userID)
@@ -35,11 +47,17 @@ def obtainUser(userID):
     row = curs.fetchone()
     return row
 
-def deleteInventoryItem(userID):
+def deleteUser(userID):
     sql = 'DELETE FROM Users WHERE userID ='
     useID = str(userID)
     curs.execute(sql + " " + userID)
     conn.commit()
+
+def obtainAllOrders():
+    sql = 'SELECT * FROM Orders'
+    curs.execute(sql)
+    rows = curs.fetchall()
+    return rows
 
 def obtainOrder(orderID):
     sql = 'SELECT * FROM Orders WHERE orderID ='
@@ -633,6 +651,11 @@ def customerMenu(request):
 def inventoryMenu(request):
     return render(request, "inventoryMenu.html")
 
+def listInventory(request):
+    inventoryList = []
+    inventoryList = obtainAllInventoryItems()
+    return render(request, "inventoryList.html", {"inventoryList": inventoryList})
+
 def newInventoryItem(request):
     inventoryName = request.GET["inventoryName"]
     department = request.GET["department"]
@@ -711,6 +734,11 @@ def deleteSelectedInventoryItem(request):
 
 def userMenu(request):
     return render(request, "userMenu.html")
+
+def listUsers(request):
+    userList = []
+    userList = obtainAllUsers()
+    return render(request, "userList.html", {"userList": userList})
 
 def newUser(request):
     userName = request.GET["userName"]
@@ -827,6 +855,11 @@ def loginUser(request):
 
 def orderMenu(request):
     return render(request, "orderMenu.html")
+
+def listOrders(request):
+    orderList = []
+    orderList = obtainAllOrders()
+    return render(request, "orderList.html", {"orderList": orderList})
 
 def newOrder(request):
     global order
