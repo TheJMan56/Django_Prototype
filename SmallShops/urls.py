@@ -3,6 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns=[
+    path("", views.base),
+    path("employeeMenu", views.employeeMenu),
+    path("customerMenu", views.customerMenu),
     path("inventoryMenu", views.inventoryMenu),
     path("newInventoryItem", views.newInventoryItem),
     path("outputInventoryItem", views.outputInventoryItem),
@@ -40,5 +43,4 @@ urlpatterns=[
     path("changeItemQuantity", views.changeItemQuantity),
     path("changeItemQuantityWithID", views.changeItemQuantityWithID),
     path("finalizeOrder", views.finalizeOrder),
-    path("deductInventory", views.deductInventory),
 ]
