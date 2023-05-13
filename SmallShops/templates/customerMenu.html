@@ -25,23 +25,23 @@
         <h1>Customer Login</h1>
         <p>Email: <input type="text" name="email"></p>
         <p>User Password: <input type="text" name="loginPassword"></p>
-        <p><input type="submit" name="loginUser"></p>
+        <p><input type="submit" Value="Login" name="loginUser"></p>
     </form>
 
     <form action="listInventory" method="GET">
         <h1>Inventory List</h1>
-        <p><input type="submit" name="listInventory"></p>
+        <p><input type="submit" Value="Show" name="listInventory"></p>
     </form>
 
     <form action="retrieveInventoryItem" method="GET">
         <h1>Retrieve Inventory Item for Cart</h1>
         <p>Inventory ID: <input type="number" name="inventoryID"></p>
-        <p><input type="submit" name="retrieveInventoryItem"></p>
+        <p><input type="submit" Value="Show" name="retrieveInventoryItem"></p>
     </form>
 
     <form action="outputInventoryItem" method="GET">
         <h1>Output Selected Inventory Item</h1>
-        <p><input type="submit" name="outputInventoryItem"></p>
+        <p><input type="submit" Value="Show" name="outputInventoryItem"></p>
     </form>
 
     <form action="newOrder" method="GET">
@@ -72,38 +72,38 @@
     <form action="addItem" method="GET">
         <h1>Add Selected Item to Cart</h1>
         <p>Quantity: <input type="number" name="orderQuantity"></p>
-        <p><input type="submit" name="addItem"></p>
+        <p><input type="submit" Value="Add" name="addItem"></p>
     </form>
 
     <form action="addItemWithID" method="GET">
         <h1>Add Item to Cart Through ID</h1>
         <p>Inventory ID: <input type="number" name="inventoryID"></p>
         <p>Quantity: <input type="number" name="orderQuantity"></p>
-        <p><input type="submit" name="addItemWithID"></p>
+        <p><input type="submit" Value="Add" name="addItemWithID"></p>
     </form>
 
     <form action="removeItem" method="GET">
         <h1>Remove Selected Inventory Item from Cart</h1>
-        <p><input type="submit" name="removeItem"></p>
+        <p><input type="submit" Value="Remove" name="removeItem"></p>
     </form>
 
     <form action="removeItemWithID" method="GET">
         <h1>Remove Inventory Item from Cart with ID</h1>
         <p><input type="number" name="inventoryID"></p>
-        <p><input type="submit" name="removeItemWithID"></p>
+        <p><input type="submit" Value="Remove" name="removeItemWithID"></p>
     </form>
 
     <form action="changeItemQuantity" method="GET">
         <h1>Change Quantity of Selected Inventory Item</h1>
         <p>Quantity: <input type="number" name="orderQuantity"></p>
-        <p><input type="submit" name="changeItemQuantity"></p>
+        <p><input type="submit" Value="Change" name="changeItemQuantity"></p>
     </form>
 
     <form action="changeItemQuantityWithID" method="GET">
         <h1>Change Qauntity of Inventory Item with ID</h1>
         <p>Inventory ID: <input type="number" name="inventoryID"></p>
         <p>Quantity: <input type="number" name="orderQuantity"></p>
-        <p><input type="submit" name="changeItemQuantityWithID"></p>
+        <p><input type="submit" Value="Change" name="changeItemQuantityWithID"></p>
     </form>
 
     <form action="finalizeOrder" method="GET">
